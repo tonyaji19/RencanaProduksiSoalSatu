@@ -1,0 +1,82 @@
+﻿@model RencanaProduksiSoalSatu.Models.ProductionPlan
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rencana Produksi Mobil</title>
+    <link rel="stylesheet" href="css/site.css">
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Rencana Produksi Mobil</h1>
+
+        <!-- Form Input Manual untuk Produksi -->
+        <form method="post">
+            <label for="Monday">Senin:</label>
+            <input type="number" id="Monday" name="Monday" required><br>
+
+            <label for="Tuesday">Selasa:</label>
+            <input type="number" id="Tuesday" name="Tuesday" required><br>
+
+            <label for="Wednesday">Rabu:</label>
+            <input type="number" id="Wednesday" name="Wednesday" required><br>
+
+            <label for="Thursday">Kamis:</label>
+            <input type="number" id="Thursday" name="Thursday" required><br>
+
+            <label for="Friday">Jumat:</label>
+            <input type="number" id="Friday" name="Friday" required><br>
+
+            <button type="submit">Proses Produksi</button>
+        </form>
+
+        <hr>
+
+        <!-- Tampilkan hasil perhitungan produksi jika sudah ada hasil dari controller -->
+        @if (Model != null && Model.ProduksiTerhitung)
+        {
+            <div class="containerhasil">
+                <h2>Hasil Rencana Produksi</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hari</th>
+                            <th>Produksi Mobil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Senin</td>
+                            <td>@Model.Monday</td>
+                        </tr>
+                        <tr>
+                            <td>Selasa</td>
+                            <td>@Model.Tuesday</td>
+                        </tr>
+                        <tr>
+                            <td>Rabu</td>
+                            <td>@Model.Wednesday</td>
+                        </tr>
+                        <tr>
+                            <td>Kamis</td>
+                            <td>@Model.Thursday</td>
+                        </tr>
+                        <tr>
+                            <td>Jumat</td>
+                            <td>@Model.Friday</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+
+</body>
+</html>
